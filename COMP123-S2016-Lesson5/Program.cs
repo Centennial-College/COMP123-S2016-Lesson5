@@ -24,6 +24,7 @@ namespace COMP123_S2016_Lesson5
             List<Card> Deck = new List<Card>();
 
             CreateDeck(Deck);
+            DisplayDeck(Deck);
 
         } // end Main
 
@@ -37,7 +38,7 @@ namespace COMP123_S2016_Lesson5
          * @method CreateDeck
          * @param {List<Card>} deck
          * @returns {void}
-         */ 
+         */
         public static void CreateDeck(List<Card> deck)
         {
             string suit = "";
@@ -57,12 +58,30 @@ namespace COMP123_S2016_Lesson5
                     case 3:
                         suit = "spades";
                         break;
-                }
+                }// end suit switch
+
                 for (int face = 1; face < 14; face++)
                 {
                     deck.Add(new Card(face, suit));
-                }
+                } // end for - face
+
+            } // end for - suit
+
+        } // end CreateDeck method
+
+        public static void DisplayDeck(List<Card> Deck)
+        {
+            Console.WriteLine("++++++++++++++++++++++++++++++++++++++++++++");
+            Console.WriteLine("+ Current Deck                             +");
+            Console.WriteLine("++++++++++++++++++++++++++++++++++++++++++++");
+            foreach (Card card in Deck)
+            {
+                Console.WriteLine("{0} of {1}", card.Face, card.Suit);
             }
+            Console.WriteLine("++++++++++++++++++++++++++++++++++++++++++++");
+            Console.WriteLine();
         }
-    }
-}
+
+    } // end Program
+
+} // end namespace
