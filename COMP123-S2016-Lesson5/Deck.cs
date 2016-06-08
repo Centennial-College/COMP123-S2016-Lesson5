@@ -40,7 +40,7 @@ namespace COMP123_S2016_Lesson5
          * @param {List<Card>} deck
          * @returns {void}
          */
-        public void _create()
+        private void _create()
         {
             string suit = "";
             for (int i = 0; i < 4; i++)
@@ -63,7 +63,7 @@ namespace COMP123_S2016_Lesson5
 
                 for (int face = 1; face < 14; face++)
                 {
-                    Add(new Card(face, suit));
+                    Add(new Card(face, suit)); // add anonymous Card object to the list
                 } // end for - face
 
             } // end for - suit
@@ -121,5 +121,25 @@ namespace COMP123_S2016_Lesson5
             }
         }
 
+        /**
+         * <summary>
+         * This method will remove the 0th item from the deck and return it to the caller
+         * </summary>
+         * 
+         * @method Deal
+         * @returns {Card} 
+         */
+        public Card Deal()
+        {
+            Card returnedCard = this[0]; // copy the 0th card in the stack to the returnedCard
+
+            // check to see if the desk is not empty
+            if (this.Count > 0)
+            {
+                this.RemoveAt(0); // Remove the 0th Card from the deck
+            }
+
+            return returnedCard;
+        }
     }
 }
